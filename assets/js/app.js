@@ -109,7 +109,7 @@
     let x = 0;
     const mitad = el.scrollWidth / 2;  // recorremos la mitad y reiniciamos: seamless
     let last = 0;
-    const SPEED = 0.18;  // px por ms
+    const SPEED = 0.10;  // px por ms
     function tick(now) {
       if (last) x += (now - last) * SPEED;
       if (x >= mitad) x -= mitad;

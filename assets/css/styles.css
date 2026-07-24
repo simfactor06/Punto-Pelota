@@ -314,17 +314,17 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;li
 .cart-fine{color:var(--ash);font-size:13px;text-align:center;margin-top:11px}
 
 /* ---------- Barra fija de celular ---------- */
-.bottom-nav{display:none;grid-template-columns:repeat(4,1fr);
+.bottom-nav{display:none;grid-template-columns:repeat(6,1fr);
   position:fixed;top:54px;left:0;right:0;z-index:39;
   background:rgba(10,15,8,.97);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line2)}
 .bn{display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:4px;padding:10px 4px;border:0;background:none;color:var(--ash);
+  gap:3px;padding:9px 2px;border:0;background:none;color:var(--ash);
   font-family:'Barlow Condensed',sans-serif;font-weight:600;
-  text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+  text-transform:uppercase;letter-spacing:.06em;font-size:10px;
   cursor:pointer;text-decoration:none;position:relative;transition:color .18s}
 .bn:hover,.bn:focus-visible,.bn.active{color:var(--lime)}
-.bn svg{width:22px;height:22px;stroke-linecap:round;stroke-linejoin:round}
+.bn svg{width:20px;height:20px;stroke-linecap:round;stroke-linejoin:round}
 .bn-wp{color:#25D366}.bn-wp:hover,.bn-wp:focus-visible{color:#128C7E}
 .bn-count{position:absolute;top:6px;right:calc(50% - 20px);
   background:var(--lime);color:#000;font-weight:700;
