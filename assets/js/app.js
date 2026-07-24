@@ -58,8 +58,40 @@
       renderGrid();
       cargarCarrito();
       renderCart();
-      observeReveals();
+    
+  /* -------- SPA: mostrar/ocultar vistas -------- */
+  function showView(name) {
+    document.querySelectorAll('.view').forEach(v => {
+      v.hidden = v.id !== 'view-' + name;
+    });
+    document.querySelectorAll('.bn[data-view]').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === name);
+    });
+    window.scrollTo(0, 0);
+    // cuando el catalogo se abre por primera vez, el grid ya esta listo
+    if (name === 'catalogo' && grid.children.length === 0) renderGrid();
+  }
+
+  function initNav() {
+    // botones del bottom-nav
+    document.querySelectorAll('.bn[data-view]').forEach(b => {
+      b.addEventListener('click', e => { e.preventDefault(); showView(b.dataset.view); });
+    });
+    // links del header que tienen data-view
+    document.querySelectorAll('[data-view]:not(.bn)').forEach(a => {
+      a.addEventListener('click', e => {
+        const v = a.dataset.view;
+        if (!v) return;
+        e.preventDefault();
+        showView(v);
+      });
+    });
+  }
+
+  initNav();
+  observeReveals();
       abrirDesdeURL();
+      showView('inicio');
     } catch (e) {
       $('#loading').textContent =
         'No se pudo cargar el catálogo. Serví el sitio por HTTP (no abriendo el archivo directo) y recargá.';
@@ -77,7 +109,7 @@
     let x = 0;
     const mitad = el.scrollWidth / 2;  // recorremos la mitad y reiniciamos: seamless
     let last = 0;
-    const SPEED = 0.55;  // px por ms
+    const SPEED = 0.18;  // px por ms
     function tick(now) {
       if (last) x += (now - last) * SPEED;
       if (x >= mitad) x -= mitad;

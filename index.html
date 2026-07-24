@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<a class="skip" href="#catalogo">Ir al catálogo</a>
+<a class="skip" data-view="catalogo" href="#">Ir al catálogo</a>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="bar" id="bar">
@@ -35,10 +35,10 @@
     <img src="assets/img/logo.webp" alt="Punto Pelota" width="150" height="141">
   </a>
   <nav class="nav">
-    <a href="#destacados">Destacados</a>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#calidad">Calidad</a>
-    <a href="#pedir">Cómo pedir</a>
+    <a data-view="inicio" href="#">Destacados</a>
+    <a data-view="catalogo" href="#">Catálogo</a>
+    <a data-view="calidad" href="#">Calidad</a>
+    <a data-view="pedir" href="#">Cómo pedir</a>
   </nav>
   <button class="cart-btn" id="cartOpen" aria-label="Abrir carrito">
     Carrito <span class="cart-count" id="cartCount">0</span>
@@ -46,14 +46,15 @@
 </header>
 <!-- nav inferior de celular (como Offload) -->
 <nav class="bottom-nav" id="bottomNav" aria-label="Navegación principal">
-  <a class="bn" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Inicio</span></a>
-  <a class="bn" href="#catalogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Catálogo</span></a>
+  <button class="bn active" data-view="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Inicio</span></button>
+  <button class="bn" data-view="catalogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Catálogo</span></button>
   <a class="bn bn-wp" href="https://wa.me/5493834608775" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.1-.43-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.54-.45-.47-.62-.47l-.53-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.3s1 2.66 1.13 2.85c.14.18 1.96 3 4.75 4.21.66.29 1.18.46 1.58.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.2-.53-.33z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.07-1.36C8.43 21.51 10.16 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.7 0-3.29-.44-4.67-1.22l-.33-.2-3.41.91.91-3.35-.22-.35A7.94 7.94 0 014 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8z"/></svg><span>WhatsApp</span></a>
   <button class="bn" id="bnCart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><span>Carrito</span><span class="bn-count" id="bnCount">0</span></button>
 </nav>
 
 <main id="top">
 
+<div class="view" id="view-inicio">
   <section class="hero">
     <img class="hero-bg" src="assets/img/hero.webp" alt="" aria-hidden="true" fetchpriority="high">
     <span class="sweep" aria-hidden="true"></span>
@@ -61,8 +62,8 @@
       <p class="eyebrow">Catamarca · Envíos a todo el país</p>
       <h1>Calidad que<br><span>se siente</span><br>en cada partido</h1>
       <div class="hero-cta">
-        <a class="btn btn-lime" href="#destacados">Ver lo destacado</a>
-        <a class="btn btn-ghost" href="#catalogo">Catálogo completo</a>
+        <a class="btn btn-lime" data-view="inicio" href="#">Ver lo destacado</a>
+        <a class="btn btn-ghost" data-view="catalogo" href="#">Catálogo completo</a>
       </div>
     </div>
   </section>
@@ -82,10 +83,12 @@
         <p class="lede">Los que recomendamos con los ojos cerrados. Si es tu primera compra, empezá por acá.</p>
       </header>
       <div class="feat" id="feat"></div>
-      <a class="btn btn-ghost feat-more reveal" href="#catalogo">Ver el catálogo completo</a>
+      <a class="btn btn-ghost feat-more reveal" data-view="catalogo" href="#">Ver el catálogo completo</a>
     </div>
   </section>
+</div>
 
+<div class="view" id="view-catalogo" hidden>
   <section class="sec catalogo" id="catalogo">
     <div class="sec-in">
       <header class="sec-head reveal">
@@ -97,7 +100,9 @@
       <p class="loading" id="loading">Cargando el catálogo…</p>
     </div>
   </section>
+</div>
 
+<div class="view" id="view-calidad" hidden>
   <section class="sec calidad" id="calidad">
     <div class="sec-in calidad-in">
       <figure class="calidad-img reveal">
@@ -117,7 +122,9 @@
       </div>
     </div>
   </section>
+</div>
 
+<div class="view" id="view-pedir" hidden>
   <section class="sec pedir" id="pedir">
     <div class="sec-in">
       <header class="sec-head reveal">
@@ -141,8 +148,6 @@
     </div>
   </section>
 
-</main>
-
 <footer class="foot">
   <div class="sec-in foot-in">
     <div>
@@ -151,15 +156,19 @@
     </div>
     <div class="foot-links">
       <a href="https://wa.me/5493834608775" target="_blank" rel="noopener">WhatsApp 383 460-8775</a>
-      <a href="#destacados">Destacados</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#pedir">Cómo pedir</a>
+      <a data-view="inicio" href="#">Destacados</a>
+      <a data-view="catalogo" href="#">Catálogo</a>
+      <a data-view="pedir" href="#">Cómo pedir</a>
     </div>
   </div>
 </footer>
 
 
 <!-- ficha de producto -->
+</div>
+
+</main>
+
 <div class="scrim" id="scrim" hidden></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mNombre" aria-hidden="true">
   <div class="modal-card">
@@ -196,4 +205,4 @@
 
 <script src="assets/js/app.js"></script>
 </body>
-</html> 
+</html>
