@@ -1,0 +1,173 @@
+{
+  "actualizado": "2026-07-23",
+  "categorias": [
+    {
+      "id": "futbol",
+      "nombre": "Fútbol"
+    },
+    {
+      "id": "pique",
+      "nombre": "Medio pique"
+    },
+    {
+      "id": "entrenamiento",
+      "nombre": "Entrenamiento"
+    }
+  ],
+  "productos": [
+    {
+      "id": "trionda-mundial-2026",
+      "nombre": "Trionda Mundial 2026",
+      "categoria": "futbol",
+      "precio": 21000,
+      "img": "assets/img/productos/trionda-mundial-2026.webp",
+      "destacado": true,
+      "stock": true,
+      "detalle": "La oficial del Mundial 2026. Tres paneles, sello FIFA.",
+      "talle": null
+    },
+    {
+      "id": "nassau-alto-impacto-futbol",
+      "nombre": "Nassau Alto Impacto",
+      "categoria": "futbol",
+      "precio": 33000,
+      "img": "assets/img/productos/nassau-alto-impacto.webp",
+      "destacado": true,
+      "stock": true,
+      "detalle": "La que más sale. Championship Pro para cancha dura.",
+      "talle": null
+    },
+    {
+      "id": "nassau-pro-blanco",
+      "nombre": "Nassau Pro Blanco",
+      "categoria": "futbol",
+      "precio": 35000,
+      "img": "assets/img/productos/nassau-pro-blanco.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Blanco y negro de toda la vida.",
+      "talle": null
+    },
+    {
+      "id": "nassau-pro-beige",
+      "nombre": "Nassau Pro Beige",
+      "categoria": "futbol",
+      "precio": 39000,
+      "img": "assets/img/productos/nassau-pro-beige.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Terminación beige, la más linda del estante.",
+      "talle": null
+    },
+    {
+      "id": "nassau-pro-naranja-futbol",
+      "nombre": "Nassau Pro Naranja",
+      "categoria": "futbol",
+      "precio": 39000,
+      "img": "assets/img/productos/nassau-pro-naranja.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Naranja flúor: se ve aunque juegues de noche.",
+      "talle": null
+    },
+    {
+      "id": "tango-1",
+      "nombre": "Tango 1",
+      "categoria": "pique",
+      "precio": 30000,
+      "img": "assets/img/productos/tango-1.webp",
+      "destacado": true,
+      "stock": true,
+      "detalle": "El diseño Tango Mundial. Un clásico que no falla.",
+      "talle": null
+    },
+    {
+      "id": "nassau-alto-impacto-pique",
+      "nombre": "Nassau Alto Impacto",
+      "categoria": "pique",
+      "precio": 30000,
+      "img": "assets/img/productos/nassau-alto-impacto.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "El Championship Pro en versión medio pique.",
+      "talle": null
+    },
+    {
+      "id": "nassau-pro-naranja-pique",
+      "nombre": "Nassau Pro Naranja",
+      "categoria": "pique",
+      "precio": 30000,
+      "img": "assets/img/productos/nassau-pro-naranja.webp",
+      "destacado": false,
+      "stock": false,
+      "detalle": "Medio pique naranja de alta visibilidad.",
+      "talle": null
+    },
+    {
+      "id": "conos-chinos",
+      "nombre": "Conos Chinos",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/conos-chinos.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Set apilable con argolla. Para circuitos y delimitar espacios.",
+      "talle": null
+    },
+    {
+      "id": "platillos",
+      "nombre": "Platillos",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/platillos.webp",
+      "destacado": true,
+      "stock": true,
+      "detalle": "Set de colores con argolla. Livianos, no lastiman si los pisás.",
+      "talle": null
+    },
+    {
+      "id": "conos-23cm",
+      "nombre": "Conos 23 cm",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/conos-23cm.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Cono rígido con base. El clásico para slalom.",
+      "talle": null
+    },
+    {
+      "id": "conos-tortuga",
+      "nombre": "Conos Tortuga",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/conos-tortuga.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Bajitos y con agujero central. Se pisan sin romperse.",
+      "talle": null
+    },
+    {
+      "id": "vallas-entrenamiento",
+      "nombre": "Vallas de Entrenamiento",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/vallas-entrenamiento.webp",
+      "destacado": true,
+      "stock": true,
+      "detalle": "Plegables, para saltos y trabajo de tren inferior.",
+      "talle": null
+    },
+    {
+      "id": "escalera-coordinacion",
+      "nombre": "Escalera de Coordinación",
+      "categoria": "entrenamiento",
+      "precio": null,
+      "img": "assets/img/productos/escalera-coordinacion.webp",
+      "destacado": false,
+      "stock": true,
+      "detalle": "Peldaños regulables. Para pies rápidos y entrada en calor.",
+      "talle": null
+    }
+  ]
+}
