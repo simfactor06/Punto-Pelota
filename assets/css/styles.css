@@ -83,20 +83,28 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;li
   transform:rotate(14deg);animation:sweep 9s ease-in-out infinite}
 @keyframes sweep{0%{left:-30%}55%,100%{left:120%}}
 .hero-in{position:relative;z-index:2;max-width:var(--max);width:100%;margin:0 auto;padding:56px 24px}
-.hero h1{font-size:clamp(46px,7.6vw,86px);margin:16px 0 20px}
+.hero h1{font-size:clamp(46px,7.6vw,86px);margin:12px 0 20px}
 .hero h1 span{color:var(--lime)}
 .hero .lede{margin-bottom:30px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ---------- Ticker ---------- */
+/* ---------- Promo strip ---------- */
+.promo-strip{display:flex;align-items:center;justify-content:center;gap:14px;
+  background:var(--night2);border-bottom:1px solid var(--line2);
+  padding:12px 20px;font-family:'Barlow Condensed',sans-serif;font-size:15px;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--ash);text-align:center;flex-wrap:wrap}
+.promo-badge{background:var(--lime);color:#000;font-weight:700;
+  padding:4px 12px;border-radius:3px;font-size:16px;white-space:nowrap}
+
+/* ---------- Ticker (JS) ---------- */
+
 .ticker{overflow:hidden;background:var(--lime);color:#0A0F00;
-  border-block:1px solid var(--lime-deep);padding:9px 0}
-.ticker-run{display:flex;gap:34px;width:max-content;animation:run 34s linear infinite}
-.ticker-run span{font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  border-block:1px solid var(--lime-deep);padding:9px 0;user-select:none}
+.ticker-inner{display:flex;width:max-content;will-change:transform}
+.ticker-inner span{font-family:'Barlow Condensed',sans-serif;font-weight:700;
   text-transform:uppercase;letter-spacing:.15em;font-size:15px;white-space:nowrap;
-  display:flex;align-items:center;gap:34px}
-.ticker-run span::after{content:"●";font-size:8px;opacity:.55}
-@keyframes run{to{transform:translateX(-50%)}}
+  padding:0 28px;display:flex;align-items:center;gap:28px}
+.ticker-inner span::after{content:"●";font-size:8px;opacity:.55}
 
 /* ---------- Tarjetas ---------- */
 .feat,.grid{display:grid;gap:18px}
@@ -302,18 +310,22 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;li
 .cart-fine{color:var(--ash);font-size:13px;text-align:center;margin-top:11px}
 
 /* ---------- Barra fija de celular ---------- */
-.bottombar,.bottombar[hidden]{display:none}
-.bottombar{position:fixed;left:0;right:0;bottom:0;z-index:45;
-  align-items:center;gap:14px;padding:11px 16px calc(11px + var(--safe));
-  background:rgba(16,21,14,.97);backdrop-filter:blur(12px);
-  border-top:1px solid var(--line2);
-  transform:translateY(110%);transition:transform .3s cubic-bezier(.3,.9,.3,1)}
-.bottombar.show{transform:none}
-.bb-txt{flex:1;min-width:0;line-height:1.25}
-.bb-txt b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;
-  text-transform:uppercase;letter-spacing:.06em;font-size:15px}
-.bb-txt span{font-family:'Anton',sans-serif;font-size:19px;color:var(--lime)}
-.bottombar .btn{padding:12px 20px;font-size:15px}
+.bottom-nav{position:sticky;top:0;z-index:39;   /* justo debajo del .bar (z:40) */
+  display:none;grid-template-columns:repeat(4,1fr);
+  background:rgba(10,15,8,.97);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line2)}
+.bn{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;padding:10px 4px;border:0;background:none;color:var(--ash);
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+  cursor:pointer;text-decoration:none;position:relative;transition:color .18s}
+.bn:hover,.bn:focus-visible{color:var(--lime)}
+.bn svg{width:22px;height:22px;stroke-linecap:round;stroke-linejoin:round}
+.bn-wp{color:#25D366}.bn-wp:hover,.bn-wp:focus-visible{color:#128C7E}
+.bn-count{position:absolute;top:6px;right:calc(50% - 20px);
+  background:var(--lime);color:#000;font-weight:700;
+  min-width:18px;height:18px;border-radius:9px;
+  display:grid;place-items:center;font-size:11px;padding:0 4px}
 
 .fly{position:fixed;z-index:80;pointer-events:none;border-radius:50%;
   transition:transform .72s cubic-bezier(.5,-.35,.7,.55),opacity .72s ease}
@@ -340,10 +352,11 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;li
   .bar{padding:8px 14px;gap:12px}
   .cart-btn{display:none}          /* en celular manda la barra de abajo */
 
-  .hero{min-height:clamp(430px,70vh,560px)}
-  .hero::after{background:linear-gradient(180deg,rgba(7,10,6,.84) 0%,rgba(7,10,6,.7) 45%,rgba(7,10,6,.95) 100%)}
-  .hero-in{padding:44px 18px}
-  .hero-cta .btn{flex:1}
+  .hero{min-height:0;height:clamp(230px,44vw,340px)}
+  .hero::after{background:linear-gradient(180deg,rgba(7,10,6,.82) 0%,rgba(7,10,6,.68) 45%,rgba(7,10,6,.96) 100%)}
+  .hero-in{padding:28px 18px}
+  .hero h1{font-size:clamp(28px,8vw,46px);margin:8px 0 16px}
+  .hero-cta .btn{flex:1;padding:10px 14px;font-size:14px}
 
   /* 3 productos por fila */
   .grid,.feat{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
@@ -372,7 +385,7 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;li
   .pedir-cta .btn{width:100%}
   .bottombar:not([hidden]){display:flex}
   body.hascart{padding-bottom:78px}
-  .toast{bottom:92px}
+  .toast{bottom:28px}
   .modal{padding:0;align-items:flex-end}
   .modal-card{width:100%;max-height:92dvh;border-radius:12px 12px 0 0;
     border-left:0;border-right:0;border-bottom:0;

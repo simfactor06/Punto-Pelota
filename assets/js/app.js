@@ -67,10 +67,25 @@
   }
 
   function renderTicker() {
-    const frases = ['Envíos a todo el país', '10% off en efectivo', 'Todas las tarjetas',
-      'Nassau · Tango · Trionda', 'Elementos de entrenamiento', 'Catamarca'];
+    const frases = ['10% OFF en efectivo', 'Envíos a todo el país', 'Todas las tarjetas',
+      'Nassau · Tango · Trionda', 'Elementos de entrenamiento', 'Catamarca · 383 460-8775'];
+    // duplicamos 4 veces para que haya suficiente contenido sin importar el ancho del celular
     const bloque = frases.map(f => `<span>${f}</span>`).join('');
-    $('#tickerRun').innerHTML = bloque + bloque;
+    const el = $('#tickerInner');
+    el.innerHTML = bloque + bloque + bloque + bloque;
+    // animacion JS: mas confiable que CSS en celulares (no se pausa, no desaparece)
+    let x = 0;
+    const mitad = el.scrollWidth / 2;  // recorremos la mitad y reiniciamos: seamless
+    let last = 0;
+    const SPEED = 0.55;  // px por ms
+    function tick(now) {
+      if (last) x += (now - last) * SPEED;
+      if (x >= mitad) x -= mitad;
+      el.style.transform = 'translateX(-' + x.toFixed(2) + 'px)';
+      last = now;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }
 
   /* ---------- tarjetas ---------- */
@@ -223,7 +238,7 @@
 
   function volarAlCarrito(btn) {
     const img = btn.closest('.card, .fcard')?.querySelector('img');
-    const destino = $('#bottomBar').offsetParent ? $('#bbOpen') : $('#cartOpen');
+    const destino = $('#bnCart').offsetParent ? $('#bnCart') : $('#cartOpen');
     if (!img || !destino) return;
     const a = img.getBoundingClientRect(), b = destino.getBoundingClientRect();
     if (!a.width || !b.width) return;
@@ -260,13 +275,9 @@
       return a + (!p || esConsulta(p) ? 0 : p.precio * q);
     }, 0);
 
-    // barra fija de celular
-    const bb = $('#bottomBar');
-    bb.hidden = count === 0;
-    bb.classList.toggle('show', count > 0);
-    document.body.classList.toggle('hascart', count > 0);
-    $('#bbCount').textContent = count + (count === 1 ? ' producto' : ' productos');
-    $('#bbTotal').textContent = money(subtotal);
+    // contador del bottom-nav
+    const bnCount = $('#bnCount');
+    if (bnCount) bnCount.textContent = count;
 
     if (!carrito.size) {
       body.innerHTML = '<p class="cart-empty">Tu pedido está vacío.<br>Sumá algo del catálogo.</p>';
@@ -329,7 +340,8 @@
     scrim.hidden = true; document.body.style.overflow = '';
   };
   $('#cartOpen').addEventListener('click', openCart);
-  $('#bbOpen').addEventListener('click', openCart);
+  $('#bnCart').addEventListener('click', openCart);
+  
   $('#cartClose').addEventListener('click', closeCart);
   scrim.addEventListener('click', () => { closeCart(); cerrarFicha(); });
   document.addEventListener('keydown', e => {
